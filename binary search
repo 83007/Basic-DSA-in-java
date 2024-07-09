@@ -1,0 +1,24 @@
+
+class HelloWorld {
+    static void binarysearch(int arr[],int n,int t)
+    {
+        int low=0,high=n-1;
+        while(low<=high){
+            int mid=(low+high)/2;
+            if(arr[mid]==t){System.out.print("found");
+            return ;}
+            else if(arr[mid]<t)low=mid+1;
+            else high=mid-1;
+        }
+        System.out.println("not found");
+    }
+  
+    public static void main(String[] args){
+        int arr[]={1,2,3,4,5,6};
+        int n=arr.length;
+        int t=7;
+        binarysearch(arr,n,t);
+       
+    }
+    
+}
