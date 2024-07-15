@@ -1,0 +1,23 @@
+import java.util.Scanner;
+ 
+class HelloWorld {
+    public record Student(int roll,String name,int marks ){
+    
+}
+    public static void main(String[] args) {
+      Scanner sc=new Scanner(System.in);
+      Student[] st=new Student[40];
+      for(int i=0;i<40;i++){
+          int roll=sc.nextInt();
+          String name=sc.nextLine();
+          int marks=sc.nextInt();
+          st[i]=new Student(roll,name,marks);
+      }
+      for(int i=0;i<40;i++){
+         System.out.print(st[i].roll+" ");
+         System.out.print(st[i].name+" ");
+         System.out.println(st[i].marks);
+      }
+      
+    }
+}
