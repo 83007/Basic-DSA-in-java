@@ -1,0 +1,84 @@
+import java.util.*;
+public  class Main  {
+ static  Node head;
+static class Node{
+    int data;
+    Node next;
+    Node(int key){
+        data=key;
+        next=null;
+    }
+    }
+   
+     
+        static void push( int new_key){
+            Node new_node=new Node(new_key);
+            new_node.next=head;
+            head=new_node;
+        }
+    static void insertAfter(Node prev_node,int new_data){
+            Node new_node=new Node(new_data);
+            new_node.next=prev_node.next;
+            prev_node.next=new_node;
+        }
+        static void append(int new_data){
+             Node new_node=new Node(new_data);
+             new_node.next=null;
+             Node last=head;
+             while(last.next!=null)last=last.next;
+             last.next=new_node;
+        }
+        static Node DelAtBegining(){
+Node temp=head;
+head=head.next;
+        return head;    
+        }
+        static Node DelAtEnd(){
+            Node temp=head;
+            while(temp.next.next!=null){
+                temp=temp.next;
+            }
+            temp.next=null;
+            return temp;
+        }
+         static  Node deleteNode(Node head,int position){
+            Node temp=head;
+            Node prev=null;
+            if(temp==null)return head;
+            if(position==1){
+                head=temp.next;
+                return head;
+            }
+            for(int i=1;temp!=null && i<position;i++){
+                prev=temp;
+                temp=temp.next;
+            }
+            if(temp!=null)prev.next=temp.next;
+            else System.out.println("Data not present:");
+            return head;
+        }
+        static void print(){
+            Node temp=head;
+            while(temp!=null){
+                System.out.print(temp.data+" ");
+                temp=temp.next;
+            }
+            System.out.println();
+        }
+    public static void main(String[] args) {
+      
+        push(10);
+        push(20);
+        push(30);
+        push(40);
+        insertAfter(head,50);
+        insertAfter(head,60);
+        insertAfter(head,70);
+        append(80);
+        append(90);
+        print();
+        
+        deleteNode(head,3);
+        print();
+    }
+}
