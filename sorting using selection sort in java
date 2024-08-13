@@ -1,0 +1,69 @@
+import java.util.*;
+public  class Main  {
+ static  Node head;
+static class Node{
+    int data;
+    Node next;
+    Node(int key){
+        data=key;
+        next=null;
+    }
+    }
+   
+     
+        static void push( int new_key){
+            Node new_node=new Node(new_key);
+            new_node.next=head;
+            head=new_node;
+        }
+    static void insertAfter(Node prev_node,int new_data){
+            Node new_node=new Node(new_data);
+            new_node.next=prev_node.next;
+            prev_node.next=new_node;
+        }
+        static void append(int new_data){
+             Node new_node=new Node(new_data);
+             new_node.next=null;
+             Node last=head;
+             while(last.next!=null)last=last.next;
+             last.next=new_node;
+        }
+        public static  void sortList(){
+            Node current=head;
+            while(current!=null){
+                Node index=current.next;
+                Node min=current;
+                while(index!=null){
+                    if(index.data<min.data)min=index;
+                    index=index.next;
+                }
+                int temp=current.data;
+                current.data=min.data;
+                min.data=temp;
+                current=current.next;
+            }
+        }
+        static void print(){
+            Node temp=head;
+            while(temp!=null){
+                System.out.print(temp.data+" ");
+                temp=temp.next;
+            }
+            System.out.println();
+        }
+    public static void main(String[] args) {
+      
+        push(10);
+        push(20);
+        push(30);
+        push(40);
+        insertAfter(head,50);
+        insertAfter(head,60);
+        insertAfter(head,70);
+        append(80);
+        append(90);
+        print();
+        sortList();
+        print();
+    }
+}
