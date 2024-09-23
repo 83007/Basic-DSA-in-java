@@ -25,7 +25,7 @@ private int parent(int pos)
     private void swap(int fpos,int spos){
         int temp=Heap[fpos];
         Heap[fpos]=Heap[spos];
-        heap[spos]=temp;
+        Heap[spos]=temp;
     }
     private void maxHeapify(int pos){
         if(isLeaf(pos))return;
@@ -36,7 +36,7 @@ private int parent(int pos)
             }
             else{
                 swap(pos,rightchild(pos));
-                maxHeapify(rightcild(pos));
+                maxHeapify(rightchild(pos));
             }
         }
     }
@@ -51,9 +51,9 @@ private int parent(int pos)
     }
     public void print(){
         for(int i=0;i<size/2;i++){
-            System.out.print("parent Node: "+Heap[i]);
-            if(leftchild[i]<size)System.out.print("Left child Node : "+Heap[leftchild(i)]);
-            if(rightchild[i]<size)System.out.print("Right child Node : "+Heap[rightchild(i)]);
+            System.out.print("parent Node: "+ Heap[i]);
+            if(leftchild(i)<size)System.out.print(" Left child Node : "+ Heap[leftchild(i)]);
+            if(rightchild(i)<size)System.out.print(" Right child Node : "+ Heap[rightchild(i)]);
             System.out.println();
         }
     }
